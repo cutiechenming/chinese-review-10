@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九年级语文阅读与理解训练作业单十讲评</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #6a5acd;
+            --secondary-color: #7b68ee;
+            --accent-color: #ff8c00;
+            --success-color: #32cd32;
+            --light-color: #f8f9ff;
+            --dark-color: #333;
+            --border-radius: 12px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f0f3ff;
+            color: var(--dark-color);
+            line-height: 1.6;
+            padding: 20px;
+            background-image: radial-gradient(circle at 10% 20%, rgba(186, 190, 245, 0.1) 0%, rgba(192, 192, 245, 0.1) 33.1%, rgba(218, 203, 246, 0.1) 90%);
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, var(--primary-color), #9370db);
+            color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: float 20s linear infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-20px, -20px) rotate(360deg); }
+        }
+        
+        header h1 {
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        header h1 i {
+            color: #ffd700;
+            margin-right: 15px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin: 40px 0 25px;
+            padding-bottom: 12px;
+            border-bottom: 4px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), transparent);
+        }
+        
+        .section-title i {
+            margin-right: 15px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .question-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 28px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            border-left: 8px solid var(--primary-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .question-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        }
+        
+        .question-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed #e0e0e0;
+        }
+        
+        .question-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .question-title i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+        
+        .question-score {
+            background: linear-gradient(135deg, var(--accent-color), #ffa500);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 4px 8px rgba(255, 140, 0, 0.3);
+        }
+        
+        .question-content {
+            margin-bottom: 25px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+        
+        .question-content p {
+            margin-bottom: 12px;
+        }
+        
+        .underline {
+            background-color: #fffacd;
+            padding: 2px 4px;
+            border-radius: 3px;
+            text-decoration: none;
+        }
+        
+        .answer-section {
+            background-color: #f0fff0;
+            padding: 22px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+            border-left: 5px solid var(--success-color);
+        }
+        
+        .answer-section.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .answer-title {
+            display: flex;
+            align-items: center;
+            color: var(--success-color);
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .answer-title i {
+            margin-right: 10px;
+        }
+        
+        .answer-content {
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+        
+        .highlight {
+            background-color: #ffeb3b;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #d84315;
+            border: 1px dashed #ff9800;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.05rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            margin-right: 12px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 10px rgba(106, 90, 205, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(106, 90, 205, 0.4);
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .btn-show-answer {
+            background: linear-gradient(135deg, var(--success-color), #2e8b57);
+        }
+        
+        .btn-show-answer:hover {
+            box-shadow: 0 6px 15px rgba(50, 205, 50, 0.4);
+        }
+        
+        .btn-show-translation {
+            background: linear-gradient(135deg, #9c27b0, #7b1fa2);
+        }
+        
+        .btn-show-translation:hover {
+            box-shadow: 0 6px 15px rgba(156, 39, 176, 0.4);
+        }
+        
+        .btn-show-analysis {
+            background: linear-gradient(135deg, #ff8c00, #ff7f00);
+        }
+        
+        .btn-show-analysis:hover {
+            box-shadow: 0 6px 15px rgba(255, 140, 0, 0.4);
+        }
+        
+        .explanation, .translation-box {
+            display: none;
+            padding: 22px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .explanation.show, .translation-box.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .explanation {
+            background-color: #e8f5e9;
+            border-left: 5px solid var(--success-color);
+        }
+        
+        .translation-box {
+            background-color: #fff3e0;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .explanation-title, .translation-title {
+            color: var(--success-color);
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .translation-title {
+            color: #ff9800;
+        }
+        
+        .explanation-title i, .translation-title i {
+            margin-right: 10px;
+        }
+        
+        .note-box {
+            background-color: #e3f2fd;
+            border-left: 5px solid var(--secondary-color);
+            padding: 18px;
+            margin: 25px 0;
+            border-radius: 8px;
+            font-style: italic;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .note-box i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        th {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .poem-box {
+            background-color: #f9f0ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #9c27b0;
+        }
+        
+        .poem-title {
+            color: #7b1fa2;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .material-box {
+            background-color: #f1f8e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #689f38;
+        }
+        
+        .material-title {
+            color: #558b2f;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .material-title i {
+            margin-right: 10px;
+        }
+        
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 25px;
+            color: #666;
+            font-size: 1rem;
+            border-top: 2px solid #eee;
+        }
+        
+        .quote-box {
+            background-color: #fffde7;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #ffd600;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .question-card {
+                padding: 20px;
+            }
+            
+            .question-title {
+                font-size: 1.3rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 12px;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-graduation-cap"></i> 九年级语文阅读与理解训练作业单十讲评</h1>
+            <p>班级：__________ 姓名：__________ 学号：__________ 设计者：王伟 审核者：九年级语文备课组 限时60分钟</p>
+        </header>
+        
+        <section id="part-a">
+            <div class="section-title">
+                <i class="fas fa-pencil-alt"></i> A类：积累和运用（24分）
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-title"><i class="fas fa-font"></i> 第1-3题：阅读理解</div>
+                    <div class="question-score">分值：8分</div>
+                </div>
+                <div class="question-content">
+                    <p>画山水，最重要的问题是"意境"，<span class="underline">意境是山水画的灵hún</span>。</p>
+                    <p>什么是意境【A】我认为，意境就是景与情的结合；写景就是写情。山水画不是地理、自然环境的说明和图解，不用说，它当然要求包括自然地理的准确性，但更重要的还是表现人对自然的思想感情，见景生情，景与情要结合。如果片面追求自然科学的一面，画花【B】画鸟都会成为死的标本，画风景也缺乏情qù，没有画意，自己就不曾感动，当然更感动不了别人。</p>
+                    <p>意境和意匠是山水画的两个关键，有了意境，没有意匠，意境也就落了空。杜甫说"意匠cǎn dàn经营中"，又说"语不惊人死不休"。诗人、画家为了把自己的感受传达给别人，一定要苦心经营意匠，才能找到打动人心的艺术语言。</p>
+                    <p>（李可染《山水画的意境》节选）</p>
+                    
+                    <p><strong>1. 根据拼音用规范正楷写出相应汉字。（4分）</strong></p>
+                    <p>灵hún ( )  情qù ( )  cǎn dàn ( ) ( )</p>
+                    
+                    <p><strong>2. 文中【A】【B】处应该填的标点是（2分）（ ）</strong></p>
+                    <p>A. ， ，  &nbsp;&nbsp; B. ， 、  &nbsp;&nbsp; C. ？ 、  &nbsp;&nbsp; D. ？ ，</p>
+                    
+                    <p><strong>3. 下列选项中说法不正确的一项（2分）（ ）</strong></p>
+                    <p>A. 短文中画线句子运用了比喻的修辞手法。</p>
+                    <p>B. "打动人心"是动宾短语，"艺术语言"是主谓短语,"自然地理"是偏正短语。</p>
+                    <p>C. "意境和意匠是山水画的两个关键"一句的主干：意境和意匠是关键。</p>
+                    <p>D. "一定要苦心经营意匠，才能找到打动人心的艺术语言"是条件复句。</p>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn btn-show-answer" onclick="toggleAnswer('answer1-3')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                    <button class="btn btn-show-analysis" onclick="toggleExplanation('explanation1-3')">
+                        <i class="fas fa-lightbulb"></i> 详细解析
+                    </button>
+                </div>
+                
+                <div id="answer1-3" class="answer-section">
+                    <div class="answer-title">
+                        <i class="fas fa-check-circle"></i> 参考答案
+                    </div>
+                    <div class="answer-content">
+                        <p>1. <span class="highlight">魂 趣 惨 淡</span></p>
+                        <p>2. <span class="highlight">C</span></p>
+                        <p>3. <span class="highlight">B</span>（"艺术语言"是偏正短语）</p>
+                    </div>
+                </div>
+                
+                <div id="explanation1-3" class="explanation">
+                    <div class="explanation-title">
+                        <i class="fas fa-brain"></i> 解题思路
+                    </div>
+                    <div class="answer-content">
+                        <p><strong>第1题：</strong>根据拼音写汉字，要注意结合上下文理解词义。"灵hún"指事物的精神、核心，应写为"灵魂"；"情qù"指情趣、趣味，应写为"情趣"；"cǎn dàn经营"出自杜甫诗句，指苦心构思，应写为"惨淡"。</p>
+                        <p><strong>第2题：</strong>【A】处是设问句，后面有"我认为"的回答，所以用问号；【B】处"画花""画鸟"是并列词语，应用顿号。</p>
+                        <p><strong>第3题：</strong>B选项错误，"艺术语言"是偏正短语，不是主谓短语。"艺术"修饰"语言"，表示一种特殊的语言形式。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-title"><i class="fas fa-quote-right"></i> 第4题：课文原句默写</div>
+                    <div class="question-score">分值：8分</div>
+                </div>
+                <div class="question-content">
+                    <p>吟诵古诗文名篇，感受古仁人之风范。</p>
+                    <p>"生，亦我所欲也；义，亦我所欲也。① <u>__________</u> ， <u>__________</u> "，是孟子为了正义不惜献身的坚定信念；</p>
+                    <p>"② <u>__________</u> ， <u>__________</u> "（《岳阳楼记》），是范仲淹仕途受挫仍坚守的政治抱负；</p>
+                    <p>"③ <u>__________</u> ， <u>__________</u> "（《行路难（其一）》）是李白失意困顿时依然勇往直前的自信乐观；</p>
+                    <p>"④ <u>__________</u> ， <u>__________</u> "是刘禹锡历经世事变迁的豁达情怀；</p>
+                    <p>"⑤ <u>__________</u> ， <u>__________</u> ， <u>__________</u> "，是苏轼渴望建功报国的壮志豪情；</p>
+                    <p>"⑥ <u>__________</u> ， <u>__________</u> "（《破阵子·为陈同甫赋壮词以寄之》）则是辛弃疾为恢复中原而奏响的理想壮歌。</p>
+                    <p>鉴湖女侠秋瑾吟《满江红》感叹祖国处于危难，心怀报国之志，以"⑦ <u>__________</u> ？ <u>__________</u> "表现了蔑视世俗、不畏挫折磨难的巾帼英雄情怀。</p>
+                </div>
+                
+                <button class="btn btn-show-answer" onclick="toggleAnswer('answer4')">
+                    <i class="fas fa-eye"></i> 显示答案
+                </button>
+                
+                <div id="answer4" class="answer-section">
+                    <div class="answer-title">
+                        <i class="fas fa-check-circle"></i> 参考答案
+                    </div>
+                    <div class="answer-content">
+                        <p>① <span class="highlight">二者不可得兼，舍生而取义者也</span></p>
+                        <p>② <span class="highlight">先天下之忧而忧，后天下之乐而乐</span></p>
+                        <p>③ <span class="highlight">长风破浪会有时，直挂云帆济沧海</span></p>
+                        <p>④ <span class="highlight">沉舟侧畔千帆过，病树前头万木春</span></p>
+                        <p>⑤ <span class="highlight">会挽雕弓如满月，西北望，射天狼</span></p>
+                        <p>⑥ <span class="highlight">了却君王天下事，赢得生前身后名</span></p>
+                        <p>⑦ <span class="highlight">俗子胸襟谁识我？英雄末路当磨折</span></p>
+                    </div>
+                </div>
+                
+                <div class="note-box">
+                    <p><i class="fas fa-exclamation-circle"></i> <strong>注意：</strong>默写题要特别注意易错字，如"沧"不要写成"苍"，"挽"不要写成"晚"，"赢"不要写成"嬴"等。理解性默写要先理解句意和语境。</p>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-title"><i class="fas fa-users"></i> 第5题：综合性学习</div>
+                    <div class="question-score">分值：8分</div>
+                </div>
+                <div class="question-content">
+                    <p><strong>【名家传道】</strong></p>
+                    <p>(1) 以下是一段对学生关于写作的指导话语，用四字短语依次提炼其他三个要点。（3分）</p>
+                    <p>写作的诀窍在于专注，唯有全身心投入的专注，才能让你敏锐捕捉到那些稍纵即逝的细微灵感。有了灵感还不够，更要沉下心去深入挖掘其内在的独特之处，就像描绘一朵花，得用心找出它和其他花不一样的姿态、颜色与神韵。找到这些独特之处后，还要用精准的文字将其生动表达出来，让读者能直观感受到这份独特。</p>
+                    <p>用四字短语填在下面的括号中：</p>
+                    <p>(贵在专注)---( )---( )---( )</p>
+                    
+                    <p><strong>【人物探究】</strong></p>
+                    <p>(2) 阅读小说时，小语搜集了两则与"赠财物"相关的材料，还对材料一中人物看似矛盾行为的缘由进行了探究。请你仿例写出对材料二的探究结果。（3分）</p>
+                    
+                    <div class="quote-box">
+                        <p><strong>【材料一】</strong>曹操听闻祢衡有才，欲召其入府。祢衡至，曹操却不命坐，祢衡乃仰天叹曰："天地虽阔，何无一人也！"曹操令其为鼓吏，祢衡击鼓骂曹，后曹操送祢衡金银布帛，祢衡拒不接受，称"吾乃有志之士，岂受此秽物"，拂袖而去。</p>
+                        <p><strong>小语的探究结果：</strong>材料一中曹操送祢衡金银布帛，祢衡拒不接受，可见祢衡拒受赠物，是坚守气节，性情刚傲，不屑与曹操同流，并非故作清高。</p>
+                    </div>
+                    
+                    <div class="quote-box">
+                        <p><strong>【材料二】</strong>范进即将这银子交与浑家打开看，一封一封雪白的细丝锭子，即便包了两锭，叫胡屠户进来，递与他道："方才费老爹的心，拿了五千钱来。这六两多银子，老爹拿了去。"屠户把银子攥在手里紧紧的，把拳头舒过来，道："这个，你且收着。我原是贺你的，怎好又拿了回去？"范进道："眼见得我这里还有这几两银子，若用完了，再来问老爹讨来用。"屠户连忙把拳头缩了回去，往腰里揣。</p>
+                    </div>
+                    
+                    <p><strong>你的探究结果：</strong> ___________________________</p>
+                    
+                    <p><strong>【活动交流】</strong></p>
+                    <p>(3) "小说交流台"活动末尾，大家从赏析小说的角度进行讨论，请你参与。（2分）</p>
+                    <p>小佳：我认为赏析小说可以从情节入手，情节是小说的骨架，梳理情节能理清故事脉络。</p>
+                    <p>小宇：我觉得分析人物的成长变化也很重要，人物的成长能体现小说的深度，反映社会或人性等方面的内容。</p>
+                    <p><strong>你：</strong> ___________________________</p>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn btn-show-answer" onclick="toggleAnswer('answer5')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                    <button class="btn btn-show-analysis" onclick="toggleExplanation('explanation5')">
+                        <i class="fas fa-lightbulb"></i> 详细解析
+                    </button>
+                </div>
+                
+                <div id="answer5" class="answer-section">
+                    <div class="answer-title">
+                        <i class="fas fa-check-circle"></i> 参考答案
+                    </div>
+                    <div class="answer-content">
+                        <p>(1) <span class="highlight">(捕捉灵感)---(挖掘独特)---(精准表达)</span>（3分，一空1分）</p>
+                        <p>(2) <span class="highlight">范进送两锭银子给胡屠户，胡屠户假意推辞（1分），这体现出胡屠户只是虚伪客套，实则吝啬、看重财物，暴露了其虚伪、爱占小便宜的本性（2分）。</span>（共3分）</p>
+                        <p>(3) <span class="highlight">我认为赏析小说还可以从环境描写角度切入（1分）。环境描写既可以渲染氛围，又能烘托人物心境，还能推动情节发展，助力我们深入理解小说主旨与人物形象（1分）。</span></p>
+                    </div>
+                </div>
+                
+                <div id="explanation5" class="explanation">
+                    <div class="explanation-title">
+                        <i class="fas fa-brain"></i> 解题思路
+                    </div>
+                    <div class="answer-content">
+                        <p><strong>第(1)题：</strong>提炼要点题，需要仔细阅读文段，找出关键词。文段中"捕捉到那些稍纵即逝的细微灵感"对应"捕捉灵感"；"深入挖掘其内在的独特之处"对应"挖掘独特"；"用精准的文字将其生动表达出来"对应"精准表达"。</p>
+                        <p><strong>第(2)题：</strong>仿照示例进行人物行为分析。材料二中胡屠户"把银子攥在手里紧紧的"又假意推辞，体现了其虚伪、爱财的性格特点。要结合具体行为分析人物心理。</p>
+                        <p><strong>第(3)题：</strong>开放性题目，可以从环境描写、主题思想、语言特色等角度切入。回答时要说明该角度对小说赏析的重要性。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="part-b">
+            <div class="section-title">
+                <i class="fas fa-book-open"></i> 二、阅读理解（共66分）
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-title"><i class="fas fa-poem"></i> 第6题：古诗阅读《夜宿七盘岭》</div>
+                    <div class="question-score">分值：6分</div>
+                </div>
+                
+                <div class="poem-box">
+                    <div class="poem-title">夜宿七盘岭 [唐] 沈佺期</div>
+                    <p>独游千里外，高卧七盘西。</p>
+                    <p>山月临窗近，天河入户低。</p>
+                    <p>芳春平仲绿，清夜子规啼。</p>
+                    <p>浮客空留听，褒城闻曙鸡。</p>
+                    <p>【注】①本诗作于诗人被流放途中夜宿四川七盘岭之时。②平仲：银杏。③褒城：今陕西汉中北</p>
+                </div>
+                
+                <div class="question-content">
+                    <p><strong>6.（1）请用优美的语言描述诗歌颔联（第二联）展现的画面。（3分）</strong></p>
+                    <p>_______________________________________________________</p>
+                    
+                    <p><strong>（2）分析颈联（第三联）"芳春平仲绿，清夜子规啼"在表达情感方面的作用。（3分）</strong></p>
+                    <p>_______________________________________________________</p>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn btn-show-answer" onclick="toggleAnswer('answer6')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                    <button class="btn btn-show-analysis" onclick="toggleExplanation('explanation6')">
+                        <i class="fas fa-lightbulb"></i> 详细解析
+                    </button>
+                </div>
+                
+                <div id="answer6" class="answer-section">
+                    <div class="answer-title">
+                        <i class="fas fa-check-circle"></i> 参考答案
+                    </div>
+                    <div class="answer-content">
+                        <p><strong>（1）</strong><span class="highlight">山中的月亮清晰可见，仿佛就在窗前，天上的银河向西低垂，仿佛要从门户中流入。</span>(3分)</p>
+                        <p><strong>（2）</strong></p>
+                        <p><span class="highlight">示例一：</span>对偶，对仗工整（1分），生动形象地描绘了艳丽芬芳的春天银杏树的叶子逐渐变绿，寂静的夜晚传来子规鸟的哀啼，催人归去（1分），营造出悲凉的氛围，衬托了诗人内心的惆怅（1分）。</p>
+                        <p><span class="highlight">示例二：</span>动静结合，视听结合（1分）生动形象地描绘了艳丽芬芳的春天银杏树的叶子逐渐变绿，寂静的夜晚传来子规鸟的哀啼，催人归去（1分），营造出悲凉的氛围，衬托了诗人内心的惆怅（1分）。</p>
+                        <p><span class="highlight">示例三：</span>芳春的银杏绿和清夜的子规啼，因诗人遭贬的愁苦，都带有忧伤色彩（1分）。银杏绿让诗人感觉青春流逝、前途未卜，子规啼勾起离愁别绪和思乡情（1分），体现了"以我观物，故物皆著我之色彩"，即诗人主观情感赋予景物特定色彩，表达自己离愁的情感。（1分）</p>
+                    </div>
+                </div>
+                
+                <div id="explanation6" class="explanation">
+                    <div class="explanation-title">
+                        <i class="fas fa-brain"></i> 解题思路
+                    </div>
+                    <div class="answer-content">
+                        <p><strong>第（1）题：</strong>描述画面题，需要将诗句内容转化为生动的语言，注意保持原诗的意境。抓住"山月临窗近，天河入户低"的关键意象：山月、窗、天河、户，展开合理想象。</p>
+                        <p><strong>第（2）题：</strong>分析诗句作用，可以从修辞手法、表现手法、情感表达等角度切入。注意结合诗歌背景（诗人被流放）和意象特点（子规啼声悲切，象征离愁），分析景物描写对情感表达的作用。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-title"><i class="fas fa-scroll"></i> 第7-11题：文言文阅读</div>
+                    <div class="question-score">分值：16分</div>
+                </div>
+                
+                <div class="question-content">
+                    <div class="material-box">
+                        <div class="material-title"><i class="fas fa-file-alt"></i> 【甲】《岳阳楼记》节选</div>
+                        <p>嗟夫！予尝求古仁人之心，或异二者之为，何哉？<span class="underline">不以物喜，不以己悲</span>，居庙堂之高则忧其民，处江湖之远则忧其君。是进亦忧，退亦忧。然则何时而乐耶？其必曰"先天下之忧而忧，后天下之乐而乐"乎！噫！微斯人，吾谁与归？</p>
+                    </div>
+                    
+                    <div class="material-box">
+                        <div class="material-title"><i class="fas fa-file-alt"></i> 【乙】《晋书·祖逖传》节选</div>
+                        <p>祖逖性豁荡，不修仪检，年十四五犹未知书，诸兄每忧之。......逖以社稷倾覆，常怀振复之志。时帝方拓定江南，未遑北伐，逖进说，帝乃以逖为奋威将军，给千人廪，布三千匹，不给铠仗，使自召募。逖将其部曲百余家渡江，中流击楫而誓曰："祖逖不能清中原而复济者，有如大江！"辞色壮烈，众皆慨叹。</p>
+                        <p>屯于江阴，起冶铸兵，得二千余人而后进，遂克谯城。逖镇雍丘，数遣军要截石勒，勒屯戍渐蹙。<span class="underline">勒又遣精骑万人距逖，复为逖所破</span>，勒镇戍归附者甚多。</p>
+                        <p>【注释】①祖逖：东晋时期名将、政治家、军事家、民族英雄。②遑：闲暇。③廪：粮食。④世家大族的私人军队。⑤石勒：匈奴大将。⑥蹙：紧迫，收缩，缩小。</p>
+                    </div>
+                    
+                    <p><strong>7. 解释文中加点的词。（4分）</strong></p>
+                    <p>①逖将其部曲百余家（ ） ②屯于江阴（ ）</p>
+                    <p>③起冶铸兵（ ） ④遂克谯城（ ）</p>
+                    
+                    <p><strong>8. 用"/"为文言句子划分节奏（划两处）。（2分）</strong></p>
+                    <p>时 帝 方 拓 定 江 南</p>
+                    
+                    <p><strong>9. 翻译下列句子。（4分）</strong></p>
+                    <p>(1) 不以物喜，不以己悲。</p>
+                    <p>_______________________________________________________</p>
+                    <p>(2) 勒又遣精骑万人距逖，复为逖所破。</p>
+                    <p>_______________________________________________________</p>
+                    
+                    <p><strong>10. 结合【甲】【乙】两文，说说祖逖与范仲淹身上有什么相同的品质。（2分）</strong></p>
+                    <p>_______________________________________________________</p>
+                    
+                    <p><strong>11. 祖逖年少时"性豁荡，不修仪检"，后来赢得"众皆慨叹"。请结合文章和链接材料，说说你从祖逖的成长经历中获得了哪些启发。（4分）</strong></p>
+                    <div class="quote-box">
+                        <p><strong>【链接材料】</strong>（祖逖）与司空刘琨俱为司州主簿，情好绸缪，共被同寝。中夜闻荒鸡鸣，蹴（用脚踢）琨觉曰："此非恶声也。"因起舞。</p>
+                    </div>
+                    <p>_______________________________________________________</p>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn btn-show-answer" onclick="toggleAnswer('answer7-11')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                    <button class="btn btn-show-translation" onclick="toggleTranslation('translation7-11')">
+                        <i class="fas fa-language"></i> 显示文言文翻译
+                    </button>
+                    <button class="btn btn-show-analysis" onclick="toggleExplanation('explanation7-11')">
+                        <i class="fas fa-lightbulb"></i> 详细解析
+                    </button>
+                </div>
+                
+                <div id="answer7-11" class="answer-section">
+                    <div class="answer-title">
+                        <i class="fas fa-check-circle"></i> 参考答案
+                    </div>
+                    <div class="answer-content">
+                        <p><strong>7.</strong> ①<span class="highlight">带领、率领</span> ②<span class="highlight">军队驻扎</span> ③<span class="highlight">武器、兵器</span> ④<span class="highlight">战胜，攻下，攻克</span></p>
+                        <p><strong>8.</strong> <span class="highlight">时/帝/方拓定江南</span></p>
+                        <p><strong>9.</strong> (1) <span class="highlight">不因外物和自己处境的变化而喜悲。</span></p>
+                        <p>(2) <span class="highlight">石勒又派遣一万精锐骑兵来抗拒祖逖，再次被祖逖打败。</span></p>
+                        <p><strong>10.</strong> <span class="highlight">示例一：心怀天下的家国情怀（1分）：祖逖主动请缨北伐以"复中原"；范仲淹提出"先天下之忧而忧，后天下之乐而乐"的政治抱负（1分）。</span></p>
+                        <p><span class="highlight">示例二：坚守理想的执着精神（1分）：祖逖即便未获充足军备，仍渡江立誓、募兵铸兵，坚持推进北伐大业；范仲淹无论"居庙堂之高"还是"处江湖之远"，均坚守"不以物喜，不以己悲"的人生准则与济世理想（1分）。</span></p>
+                        <p><strong>11.</strong> （一点2分，答任意两点，给全分）</p>
+                        <p><span class="highlight">示例一：通过文中祖逖早年虽"不修仪检"，但当国家沦陷时，他便立下"清中原"的远大志向。启发：立志要早，志向远大，青少年时期要尽早树立明确且有价值的人生目标。</span></p>
+                        <p><span class="highlight">示例二：通过文中面对皇帝只给粮草不给兵甲的困境，祖逖没有退缩，而是"自召募""起冶铸兵"，最终组建军队并取得胜利。启发：行动是实现理想的唯一途径，光有理想不够，必须脚踏实地，主动创造条件，将想法付诸实践。</span></p>
+                        <p><span class="highlight">示例三：通过文中链接材料中"闻鸡起舞"的故事，展现了他和刘琨为实现抱负而持之以恒的勤奋与努力。启发：任何成就的取得，都离不开日积月累的勤奋学习和刻苦奋斗。</span></p>
+                        <p><span class="highlight">示例四：祖逖在中流击楫，发出"不能清中原而复济者，有如大江"的誓言，体现了他破釜沉舟的决心。面对强敌石勒，他多次取胜，正是源于这份坚定的信念。启发：在追求目标的道路上，必然会遇到各种挑战和诱惑。只有坚定信念，不畏艰难，才能在逆境中不退缩，在顺境中不迷失，最终实现自己的人生价值。</span></p>
+                    </div>
+                </div>
+                
+                <div id="translation7-11" class="translation-box">
+                    <div class="translation-title">
+                        <i class="fas fa-book"></i> 文言文翻译
+                    </div>
+                    <div class="answer-content">
+                        <p><strong>【乙】《晋书·祖逖传》译文：</strong></p>
+                        <p>祖逖性格豪放不羁，不注重仪表举止，十四五岁时还不懂书籍，他的哥哥们经常为他担忧。......祖逖因为西晋政权遭颠覆，常常怀有振兴复国的大志。当时晋元帝正在拓展平定江南地区，无暇北伐，祖逖就进言，元帝就任命祖逖为奋威将军，并提供可供一千人吃的粮食和三千匹布，但不提供盔甲武器，让他自己招募士兵。祖逖就带领着部属一百多户乡亲一起渡过长江。船到江心，他用船桨敲击着发誓说："我不能扫平中原而再来渡过这条江的话，就像大江流逝不能复返。"他言辞神色慷慨壮烈，大家都为之慨叹。</p>
+                        <p>祖逖屯兵江阴，开始冶炼铸造兵器，又招募了两千多新兵，然后进发，随后攻克了谯城。祖逖镇守雍丘，多次派遣军队拦截石勒部属，石勒屯兵戍守的地盘日渐狭小。石勒又派遣一万精锐骑兵来抗拒祖逖，再次被祖逖打败，石勒手下镇守戍卫的士兵归附祖逖的很多。</p>
+                        <p><strong>【链接材料】译文：</strong></p>
+                        <p>（祖逖）与司空刘琨一起担任司州主簿，两人感情深厚，常常同床共寝。半夜听到荒野的鸡鸣，祖逖用脚踢醒刘琨说："这不是不好的声音。"于是起床舞剑。</p>
+                    </div>
+                </div>
+                
+                <div id="explanation7-11" class="explanation">
+                    <div class="explanation-title">
+                        <i class="fas fa-brain"></i> 解题思路
+                    </div>
+                    <div class="answer-content">
+                        <p><strong>第7题：</strong>文言词语解释题，需要结合上下文语境和所学知识。"将"作动词时意为"带领"；"屯"意为"驻扎"；"兵"在军事语境中多指"兵器"；"克"常见义为"攻克"。</p>
+                        <p><strong>第8题：</strong>文言断句题，先理解句意："时"表示时间，"帝"是主语，"方拓定江南"是谓语部分，主谓之间应断开，"帝"作为主语独立成读。</p>
+                        <p><strong>第9题：</strong>文言翻译题，注意关键词和句式。(1)句中"以"是"因为"的意思；(2)句中"距"通"拒"，"为...所"表被动。</p>
+                        <p><strong>第10题：</strong>比较分析题，找出两文主人公的共同品质。可以从家国情怀、理想坚守、忧国忧民等角度分析。</p>
+                        <p><strong>第11题：</strong>启示题，结合祖逖的成长经历，从立志、行动、勤奋、信念等方面谈启发。注意结合具体事例分析。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-title"><i class="fas fa-book"></i> 第12-14题：名著阅读</div>
+                    <div class="question-score">分值：10分</div>
+                </div>
+                
+                <div class="question-content">
+                    <p><strong>12. 下列关于名著表达错误的两项是（3分）（ ）（ ）</strong></p>
+                    <p>A. 《艾青诗选》中的"镜子"是直言刚烈之士的典型，"平面"展现了镜子出身普通，"真实""不隐瞒缺点""谁都从它发现自己"表现了镜子的率直与忠诚。</p>
+                    <p>B. 在《水浒传》中，晁盖、吴用、刘唐、公孙胜及阮氏三兄弟七星聚义，联合白胜在黄泥冈施巧计，劫取了由杨志押送的生辰纲。</p>
+                    <p>C. 《水浒传》中，林冲遭高俅陷害发配沧州，高俅派陆谦等人火烧草料场，欲将林冲置于死地。林冲忍无可忍，怒杀陆谦。风雪之夜，被逼上梁山。</p>
+                    <p>D. 《水浒传》中鲁智深原名鲁达，"智深"是他出家后的法号，为人行侠仗义，粗中有细，与直爽率真、鲁莽暴躁的李逵形成对比。相关情节有：拳打镇关西、倒拔垂杨柳、大闹野猪林、大闹飞云浦、六和寺坐化等。</p>
+                    <p>E. 艾青的诗歌创作常从感觉出发,把握瞬间的印象或感受,来表达强烈的情思。他还善于运用新奇生动的比喻,并且十分注意锤炼诗句的韵律,读来有着音乐般的节奏。</p>
+                    
+                    <p><strong>13. 《蒲柳人家》中的"一丈青"原是《水浒传》中一位女将的绰号，名叫 ________，她与在十字坡卖人肉馒头的母夜叉 ________ 和母大虫 ________ 是小说中有名的三位女将。（3分）</strong></p>
+                    
+                    <p><strong>14. 阅读《水浒传》的方法有很多，比较阅读是其中一种，请选择下面两组中的一组人物适当评价人物形象（性格）的相同点和不同点，并说说运用这种方法的好处。（4分）</strong></p>
+                    <p>第一组：杨志与林冲 第二组：李逵与鲁智深</p>
+                    <p>_______________________________________________________</p>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn btn-show-answer" onclick="toggleAnswer('answer12-14')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                    <button class="btn btn-show-analysis" onclick="toggleExplanation('explanation12-14')">
+                        <i class="fas fa-lightbulb"></i> 详细解析
+                    </button>
+                </div>
+                
+                <div id="answer12-14" class="answer-section">
+                    <div class="answer-title">
+                        <i class="fas fa-check-circle"></i> 参考答案
+                    </div>
+                    <div class="answer-content">
+                        <p><strong>12.</strong> <span class="highlight">D、E</span>（答对一个得1分，两个得3分）</p>
+                        <p>解析：D："大闹飞云浦"是武松的情节，不是鲁智深的，表述错误。E：艾青诗歌的创作特点描述错误，艾青的诗不刻意锤炼韵律，更多是自由体，表述错误。</p>
+                        
+                        <p><strong>13.</strong> <span class="highlight">一丈青扈三娘、母夜叉孙二娘、母大虫顾大嫂</span>。</p>
+                        
+                        <p><strong>14.</strong> <span class="highlight">示例一：杨志与林冲</span></p>
+                        <p><span class="highlight">相同点：武艺高强，都曾是朝廷的武官，都遭遇了命运的打击，被官府逼迫，最终走上梁山等。（1分）</span></p>
+                        <p><span class="highlight">不同点：林冲性格更隐忍、逆来顺受；杨志则更急躁、功利心重，一心想通过"封妻荫子"证明自己。（1分）</span></p>
+                        <p><span class="highlight">好处：比较阅读可明确人物差异，加深对人物性格复杂性的理解（1分），体会作品人物塑造的丰富性与主题深度（1分）。</span></p>
+                        
+                        <p><span class="highlight">示例二：李逵与鲁智深</span></p>
+                        <p><span class="highlight">相同点：均为嫉恶如仇、侠肝义胆，面对不公事敢于挺身而出；行事豪爽鲁莽、不拘小节，重义气轻私利（1分）</span></p>
+                        <p><span class="highlight">不同点：李逵：鲁莽带野蛮，冲动易怒，有时不分青红皂白；鲁莽含智慧，粗中有细，行事有分寸（1分）</span></p>
+                        <p><span class="highlight">好处：比较阅读可明确人物差异，加深对人物性格复杂性的理解（1分），体会作品人物塑造的丰富性与主题深度。（1分）</span></p>
+                    </div>
+                </div>
+                
+                <div id="explanation12-14" class="explanation">
+                    <div class="explanation-title">
+                        <i class="fas fa-brain"></i> 解题思路
+                    </div>
+                    <div class="answer-content">
+                        <p><strong>第12题：</strong>名著细节辨析题，需要准确掌握作品内容和人物情节。D项中"大闹飞云浦"是武松的情节；E项中艾青诗歌的特点是自由体，不刻意追求韵律。</p>
+                        <p><strong>第13题：</strong>名著人物识记题，考查《水浒传》中三位女将的绰号和姓名。需要熟记水浒人物及其绰号。</p>
+                        <p><strong>第14题：</strong>比较阅读分析题，选择一组人物进行比较。回答时要先说明相同点，再分析不同点，最后阐述比较阅读的好处。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-title"><i class="fas fa-file-alt"></i> 第15-17题：非连续性文本阅读</div>
+                    <div class="question-score">分值：12分</div>
+                </div>
+                
+                <div class="question-content">
+                    <p><strong>15. 结合材料一，概括"自强不息"的文化渊源与核心精神内涵。（4分）</strong></p>
+                    <p>_______________________________________________________</p>
+                    
+                    <p><strong>16. 材料二中藏族青年尔基的事迹是如何体现自强不息精神的？请简要分析。（4分）</strong></p>
+                    <p>_______________________________________________________</p>
+                    
+                    <p><strong>17. 结合三则材料，谈谈新时代青年应如何践行自强不息的精神。（4分）</strong></p>
+                    <p>_______________________________________________________</p>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn btn-show-answer" onclick="toggleAnswer('answer15-17')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                    <button class="btn btn-show-analysis" onclick="toggleExplanation('explanation15-17')">
+                        <i class="fas fa-lightbulb"></i> 详细解析
+                    </button>
+                </div>
+                
+                <div id="answer15-17" class="answer-section">
+                    <div class="answer-title">
+                        <i class="fas fa-check-circle"></i> 参考答案
+                    </div>
+                    <div class="answer-content">
+                        <p><strong>15.</strong> ①<span class="highlight">文化渊源：出自《易传·象传上》"天行健，君子以自强不息"，是贯穿中华五千年文明的民族精神核心基因（2分）；</span></p>
+                        <p>②<span class="highlight">核心内涵：包含面对挑战的进取姿态、立足自身的自主意识、居安思危的忧患意识，核心是"生命不息、奋斗不止"（2分）。</span></p>
+                        
+                        <p><strong>16.</strong> ①<span class="highlight">直面困境不退缩：出身大山却不甘于放牛的生活，主动抓住教育机会追寻梦想（2分）；</span></p>
+                        <p>②<span class="highlight">勤学苦练强本领：为掌握精密焊接技术，克服急性子，反复练习直至达标，不畏惧失败与材料损耗（2分）；</span></p>
+                        <p>③<span class="highlight">坚守责任敢担当：牢记核电焊接的重大责任，以"零缺陷"为目标，为国家清洁能源事业贡献力量（2分）。</span></p>
+                        
+                        <p><strong>17.</strong> ①<span class="highlight">树立明确目标，坚定理想信念，不被外界质疑或自身起点所局限（1分）；</span></p>
+                        <p>②<span class="highlight">注重实干积累，通过勤学苦练锤炼过硬本领，在实践中打磨自我（1分）；</span></p>
+                        <p>③<span class="highlight">培养坚韧心态，正视挫折与困难，将其转化为成长的动力（1分）；</span></p>
+                        <p>④<span class="highlight">胸怀家国情怀，将个人奋斗与社会发展、国家需求相结合，在奉献中实现人生价值（1分）。</span></p>
+                    </div>
+                </div>
+                
+                <div id="explanation15-17" class="explanation">
+                    <div class="explanation-title">
+                        <i class="fas fa-brain"></i> 解题思路
+                    </div>
+                    <div class="answer-content">
+                        <p><strong>第15题：</strong>信息概括题，从材料一中提取关键信息。文化渊源要指出出处和地位；核心内涵要概括主要要点。</p>
+                        <p><strong>第16题：</strong>材料分析题，从尔基的事迹中找出体现自强不息精神的具体表现。可以从志向、行动、品质等角度分析。</p>
+                        <p><strong>第17题：</strong>综合探究题，结合三则材料提出践行建议。要从个人和社会两个层面，结合材料内容提出具体可行的建议。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-title"><i class="fas fa-file-contract"></i> 第18-21题：现代文阅读《离开故乡》</div>
+                    <div class="question-score">分值：22分</div>
+                </div>
+                
+                <div class="question-content">
+                    <p><strong>18. 请简要概括作者年少时两次离开故乡的经历，并说说这些经历对他的思想产生了怎样的影响。（6分）</strong></p>
+                    <p>_______________________________________________________</p>
+                    
+                    <p><strong>19. 根据要求答题。（6分）</strong></p>
+                    <p><strong>（1）</strong>文中"他的床上有一本杂志------《今古传奇》，这是我们高中时流传最广的一本杂志......经过了这么多年，它还在他的枕边"这一细节，如何体现"寂静的精神世界"？（3分）</p>
+                    <p>_______________________________________________________</p>
+                    <p><strong>（2）</strong>作者写道："如果我们离开乡村来到城市，去一些发达的工业小镇，就会发现，一边是林立的跨国公司工厂，一边是跟乡村里同样的寂静。"这句话运用了什么手法，请分析其表达效果。（3分）</p>
+                    <p>_______________________________________________________</p>
+                    
+                    <p><strong>20. 作者的人生经历和思考，给当代青少年的成长带来了哪些深刻的启示。（4分）</strong></p>
+                    <p>_______________________________________________________</p>
+                    
+                    <p><strong>21. 结合鲁迅的小说《故乡》，分别谈谈两文中的"我"离开故乡后对"故乡"的认知有什么相似点和不同点。（6分）</strong></p>
+                    <p>_______________________________________________________</p>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn btn-show-answer" onclick="toggleAnswer('answer18-21')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                    <button class="btn btn-show-analysis" onclick="toggleExplanation('explanation18-21')">
+                        <i class="fas fa-lightbulb"></i> 详细解析
+                    </button>
+                </div>
+                
+                <div id="answer18-21" class="answer-section">
+                    <div class="answer-title">
+                        <i class="fas fa-check-circle"></i> 参考答案
+                    </div>
+                    <div class="answer-content">
+                        <p><strong>18.</strong> ①<span class="highlight">第一次：为看太原的摇滚乐演出，和同学凑钱坐5小时长途汽车前往；（2分）</span></p>
+                        <p>②<span class="highlight">第二次：高考落榜后，因美术生不用考数学，离开汾阳去太原学画画，期间和同伴坐一夜火车去北京看罗丹雕塑展（2分）；</span></p>
+                        <p>③<span class="highlight">影响：让作者意识到乡村/县城人群需通过移动才能接触更多文化资源，成为其生命中重要的经历。（2分）</span></p>
+                        
+                        <p><strong>19.</strong> （1）<span class="highlight">以小见大（1分），通过同学枕边多年未换的旧杂志这一具体物象，折射出其精神生活的停滞与匮乏。（1分）既体现出乡村生活的固化，也凸显出其精神世界缺乏新鲜内容注入、长久处于寂静无波的状态，印证"寂静的精神世界"。（1分）</span></p>
+                        <p>（2）<span class="highlight">对比（1分），这句话将"跨国公司工厂林立"的物质繁华与"和乡村同样的寂静"的精神空寂形成鲜明对比，突出了工业小镇务工者即便身处经济发达、物质层面有发展的城市边缘，其精神世界仍如乡村般匮乏、寂寞。（1分）深化了文章对人口流动背后精神需求缺失的反思。（1分）</span></p>
+                        
+                        <p><strong>20.</strong> ①<span class="highlight">主动"走出去"，突破环境限制，去接触更多元的文化和资源，拓展文化视野。（1分）如：要敢于走出家乡、学校的小圈子，通过旅行、参观展览、参与文化活动等方式，开阔眼界，丰富精神世界。（1分）</span></p>
+                        <p>②<span class="highlight">面对困境时，要敢于选择并为自己的人生负责，不盲从单一的价值标准。（1分）如：遇到挫折（如成绩不理想、考试失利）时，不要一味抱怨或认命，而要学会分析自己的优势与不足，做出适合自己的选择，并愿意为之努力和承担结果。</span></p>
+                        <p>③<span class="highlight">在物质追求之外，更要关注精神世界的建设。（1分）如：青少年在追求成绩、职业、收入的同时，也要重视阅读、艺术、思考等精神活动，避免被单一的物质标准绑架，让自己的内心世界更充实、更有厚度。</span></p>
+                        <p>④<span class="highlight">要有反叛"宿命"的勇气，坚持个性与独立思考。（1分）如：当代青少年应保持独立思考，不随波逐流，敢于质疑不合理的规则和单一的成功标准，在尊重现实的前提下，努力成为"个人宿命的反叛者"，争取更多自由与选择。</span></p>
+                        
+                        <p><strong>21.</strong> <span class="highlight">相同点（2分）</span></p>
+                        <p>①<span class="highlight">离开后都对故乡的现状（或自身与故乡的关系）有理性反思，并非单纯的情感宣泄；（1分）</span></p>
+                        <p>②<span class="highlight">都认为故乡存在一定的发展局限（如文化资源匮乏、人情变迁、发展空间狭小等），这是离开的重要诱因。（1分）</span></p>
+                        
+                        <p><span class="highlight">不同点（4分）</span></p>
+                        <p>①<span class="highlight">《离开故乡》的"我"：认为故乡是人生的"出发点"，离开是为了追寻更丰富的文化资源与人生可能，故乡与自我成长并不对立；（2分）</span></p>
+                        <p>②<span class="highlight">鲁迅《故乡》的"我"：认为故乡是压抑、落后的象征，离开是为了逃离令人窒息的环境，同时寄托着对未来的渺茫希望。（2分）</span></p>
+                    </div>
+                </div>
+                
+                <div id="explanation18-21" class="explanation">
+                    <div class="explanation-title">
+                        <i class="fas fa-brain"></i> 解题思路
+                    </div>
+                    <div class="answer-content">
+                        <p><strong>第18题：</strong>概括题，需要从文中提取作者两次离开故乡的具体经历，并分析其影响。注意时间、地点、目的等要素。</p>
+                        <p><strong>第19题：</strong>细节分析和手法赏析题。（1）题分析细节描写的作用；（2）题分析对比手法及其表达效果。</p>
+                        <p><strong>第20题：</strong>启示题，从作者的经历和思考中提炼对当代青少年的启示。可以从多个角度阐述，如视野拓展、责任担当、精神追求等。</p>
+                        <p><strong>第21题：</strong>比较阅读题，比较两篇文章中"我"对故乡认知的异同。相同点主要从反思态度和认知局限入手；不同点主要从情感态度和离别目的入手。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p><i class="fas fa-star"></i> 九年级语文备课组制 | 设计者：王伟 | 审核者：九年级语文备课组</p>
+            <p>祝同学们学习进步，考试顺利！ <i class="fas fa-graduation-cap"></i></p>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: #888;">本讲评页面答案默认隐藏，点击相应按钮可查看答案、解析和翻译</p>
+        </footer>
+    </div>
+
+    <script>
+        // 显示/隐藏答案
+        function toggleAnswer(answerId) {
+            const answer = document.getElementById(answerId);
+            answer.classList.toggle('show');
+        }
+        
+        // 显示/隐藏解析
+        function toggleExplanation(explanationId) {
+            const explanation = document.getElementById(explanationId);
+            explanation.classList.toggle('show');
+        }
+        
+        // 显示/隐藏文言文翻译
+        function toggleTranslation(translationId) {
+            const translation = document.getElementById(translationId);
+            translation.classList.toggle('show');
+        }
+        
+        // 默认展开第一个题目的解析（可选）
+        document.addEventListener('DOMContentLoaded', function() {
+            // 可以默认展开第一个题目的解析
+            // document.getElementById('explanation1-3').classList.add('show');
+        });
+        
+        // 可以添加一个显示所有答案的功能（教师用）
+        function showAllAnswers() {
+            const answers = document.querySelectorAll('.answer-section');
+            answers.forEach(answer => {
+                answer.classList.add('show');
+            });
+            alert('所有答案已显示！');
+        }
+        
+        // 可以添加一个隐藏所有答案的功能（教师用）
+        function hideAllAnswers() {
+            const answers = document.querySelectorAll('.answer-section');
+            answers.forEach(answer => {
+                answer.classList.remove('show');
+            });
+            alert('所有答案已隐藏！');
+        }
+    </script>
+</body>
+</html>
